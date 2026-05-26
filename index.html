@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal portfolio of MD. Yusuf Ahmed — CSE student, storyteller, volunteer." />
+  <meta name="author" content="MD. Yusuf Ahmed" />
+  <meta name="theme-color" content="#0a0e27" />
+  <title>MD. Yusuf Ahmed — Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Sticky navigation -->
+  <header class="nav" id="nav">
+    <div class="nav__container">
+      <a href="#home" class="nav__brand" aria-label="Yusuf Ahmed — Home">
+        <span class="nav__brand-mark" aria-hidden="true">Y</span>
+        <span class="nav__brand-name">Yusuf</span>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul class="nav__list" id="navList">
+          <li><a href="#home" class="nav__link">Home</a></li>
+          <li><a href="#about" class="nav__link">About</a></li>
+          <li><a href="#education" class="nav__link">Education</a></li>
+          <li><a href="#experience" class="nav__link">Experience</a></li>
+          <li><a href="#hobbies" class="nav__link">Hobbies</a></li>
+          <li><a href="#connect" class="nav__link">Connect</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode" type="button">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navList" type="button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section id="home" class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__blob hero__blob--1"></div>
+        <div class="hero__blob hero__blob--2"></div>
+        <div class="hero__blob hero__blob--3"></div>
+        <div class="hero__grid"></div>
+      </div>
+
+      <div class="hero__inner">
+        <p class="hero__eyebrow reveal">Hello, I'm</p>
+        <h1 class="hero__name reveal">MD. Yusuf Ahmed</h1>
+        <p class="hero__role reveal">CSE Student &nbsp;•&nbsp; Storyteller &nbsp;•&nbsp; Volunteer</p>
+
+        <blockquote class="hero__quote">
+          <span class="sr-only">A kid with a million dreams and a centillion ideas to endeavor.</span>
+          <span class="typewriter" id="typewriter" aria-hidden="true"></span><span class="cursor" aria-hidden="true">|</span>
+        </blockquote>
+
+        <div class="hero__cta reveal">
+          <a href="#about" class="btn btn--primary">About Me</a>
+          <a href="#connect" class="btn btn--ghost">Get in Touch</a>
+        </div>
+      </div>
+
+      <a href="#about" class="hero__scroll" aria-label="Scroll to About section">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section id="about" class="section">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__kicker">01 — About</span>
+          <h2 class="section__title">A little about me</h2>
+        </header>
+
+        <div class="about">
+          <div class="about__portrait reveal">
+            <div class="about__avatar" aria-hidden="true">
+              <svg viewBox="0 0 200 200" width="100%" height="100%">
+                <defs>
+                  <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#4f8cff" />
+                    <stop offset="100%" stop-color="#ffb84f" />
+                  </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="96" fill="url(#avatarGrad)" opacity="0.18" />
+                <circle cx="100" cy="80" r="34" fill="url(#avatarGrad)" />
+                <path d="M40 180 Q40 130 100 130 Q160 130 160 180 Z" fill="url(#avatarGrad)" />
+              </svg>
+            </div>
+            <span class="about__chip">22 June 1999 • Dhaka, BD</span>
+          </div>
+
+          <div class="about__text reveal">
+            <p>
+              Born in Dhaka, Bangladesh in 1999, I'm currently a 3rd-year
+              <strong>Computer Science &amp; Engineering</strong> student at
+              <strong>American International University Bangladesh (AIUB)</strong>.
+            </p>
+            <p>
+              Outside of code, I live for stories — telling them, writing them, filming them.
+              I'm equally at home strumming a few chords on a guitar, sinking hours into a strange
+              video game, or showing up for the volunteer communities that shaped me.
+            </p>
+            <p>I'm a kid with a million dreams and, somehow, a centillion ideas left to chase.</p>
+            <ul class="about__tags" aria-label="Interests">
+              <li class="tag">Storytelling</li>
+              <li class="tag">Music</li>
+              <li class="tag">Gaming</li>
+              <li class="tag">Volunteering</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Education ===== -->
+    <section id="education" class="section section--alt">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__kicker">02 — Education</span>
+          <h2 class="section__title">The road so far</h2>
+        </header>
+
+        <ol class="timeline" aria-label="Education timeline">
+          <li class="timeline__item reveal">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <article class="timeline__card">
+              <span class="timeline__period">Playgroup – Class 5</span>
+              <h3 class="timeline__title">Dhanmondi Tutorial</h3>
+              <p class="timeline__desc">English Medium School — where my curiosity first found a desk.</p>
+            </article>
+          </li>
+
+          <li class="timeline__item reveal">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <article class="timeline__card">
+              <span class="timeline__period">Class 7 – Class 10</span>
+              <h3 class="timeline__title">Scholars School &amp; College</h3>
+              <p class="timeline__desc">English Version. Friendships, exams, and the first taste of who I wanted to be.</p>
+            </article>
+          </li>
+
+          <li class="timeline__item reveal">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <article class="timeline__card">
+              <span class="timeline__period">Class 11 – 12 (HSC)</span>
+              <h3 class="timeline__title">B.A.F. Shaheen College</h3>
+              <p class="timeline__desc">Discipline, late-night study, and the runway to university.</p>
+            </article>
+          </li>
+
+          <li class="timeline__item timeline__item--current reveal">
+            <span class="timeline__dot" aria-hidden="true"></span>
+            <article class="timeline__card">
+              <span class="timeline__period">2022 — Present</span>
+              <h3 class="timeline__title">B.Sc. in Computer Science &amp; Engineering</h3>
+              <p class="timeline__desc">American International University Bangladesh (AIUB). Currently in my 3rd year — turning ideas into code.</p>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== Experience ===== -->
+    <section id="experience" class="section">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__kicker">03 — Experience</span>
+          <h2 class="section__title">Communities I've called home</h2>
+          <p class="section__subtitle">A decade of showing up where it counts.</p>
+        </header>
+
+        <div class="cards">
+          <article class="card reveal">
+            <span class="card__icon" aria-hidden="true">JF</span>
+            <h3 class="card__title">JAAGO Foundation</h3>
+            <p class="card__meta">2015 — Present</p>
+            <p class="card__desc">
+              Volunteer → Core Volunteer → Committee Member → General Secretary → 1-month Intern → Alumni Member.
+            </p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__icon" aria-hidden="true">VB</span>
+            <h3 class="card__title">Volunteer for Bangladesh</h3>
+            <p class="card__meta">2015 — Present</p>
+            <p class="card__desc">A decade of community service, and counting.</p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__icon" aria-hidden="true">TX</span>
+            <h3 class="card__title">TEDxDhaka</h3>
+            <p class="card__meta">Volunteer</p>
+            <p class="card__desc">Helped bring ideas worth spreading to Dhaka's stage.</p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__icon" aria-hidden="true">BL</span>
+            <h3 class="card__title">BYLC</h3>
+            <p class="card__meta">Bangladesh Youth Leadership Center</p>
+            <p class="card__desc">Building leadership and civic engagement, one program at a time.</p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__icon" aria-hidden="true">SC</span>
+            <h3 class="card__title">Save the Children</h3>
+            <p class="card__meta">Bangladesh</p>
+            <p class="card__desc">Standing alongside one of the world's leading child rights organizations.</p>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__icon" aria-hidden="true">BC</span>
+            <h3 class="card__title">BDCyclists</h3>
+            <p class="card__meta">Cycling Community</p>
+            <p class="card__desc">Two wheels, good company, and the streets of Dhaka at dawn.</p>
+          </article>
+
+          <article class="card card--more reveal">
+            <span class="card__icon" aria-hidden="true">+</span>
+            <h3 class="card__title">…and many more</h3>
+            <p class="card__desc">Drop me a message if you want the full list — I never seem to stop signing up.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Hobbies ===== -->
+    <section id="hobbies" class="section section--alt">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__kicker">04 — Hobbies &amp; Passions</span>
+          <h2 class="section__title">What I do when I'm not studying</h2>
+        </header>
+
+        <div class="hobbies">
+          <article class="hobby reveal">
+            <div class="hobby__emoji" aria-hidden="true">🎸</div>
+            <h3 class="hobby__title">Music</h3>
+            <p class="hobby__desc">I know exactly 4 chords on the guitar — and I'll freestyle in Bangla and English over all of them.</p>
+          </article>
+
+          <article class="hobby reveal">
+            <div class="hobby__emoji" aria-hidden="true">🎮</div>
+            <h3 class="hobby__title">Gaming</h3>
+            <p class="hobby__desc">Cut my teeth on Call of Duty: Modern Warfare. Mained League of Legends as a Teemo enthusiast since Season 6. These days I'm on PUBG Mobile with friends.</p>
+          </article>
+
+          <article class="hobby reveal">
+            <div class="hobby__emoji" aria-hidden="true">📹</div>
+            <h3 class="hobby__title">YouTube &amp; Storytelling</h3>
+            <p class="hobby__desc">Runs my channel "How I Met Teemo." Photography, videography, editing — anything that helps me tell a story.</p>
+          </article>
+
+          <article class="hobby reveal">
+            <div class="hobby__emoji" aria-hidden="true">🚴</div>
+            <h3 class="hobby__title">Cycling</h3>
+            <p class="hobby__desc">Active with BDCyclists — early-morning rides through a city that's still asleep.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Connect ===== -->
+    <section id="connect" class="section">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__kicker">05 — Connect</span>
+          <h2 class="section__title">Let's stay in touch</h2>
+          <p class="section__subtitle">Find me here, or just drop a "hi."</p>
+        </header>
+
+        <div class="socials">
+          <a class="social reveal" href="https://www.mdyusufahmed.com" target="_blank" rel="noopener noreferrer" aria-label="Personal website">
+            <span class="social__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+            </span>
+            <span class="social__text">
+              <span class="social__label">Website</span>
+              <span class="social__handle">mdyusufahmed.com</span>
+            </span>
+          </a>
+
+          <a class="social reveal" href="https://www.facebook.com/yusuf.ahmed4" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
+            <span class="social__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.19 2.24.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z" />
+              </svg>
+            </span>
+            <span class="social__text">
+              <span class="social__label">Facebook</span>
+              <span class="social__handle">yusuf.ahmed4</span>
+            </span>
+          </a>
+
+          <a class="social reveal" href="https://www.instagram.com/yusuf.ahmed71/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+            <span class="social__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </span>
+            <span class="social__text">
+              <span class="social__label">Instagram</span>
+              <span class="social__handle">@yusuf.ahmed71</span>
+            </span>
+          </a>
+
+          <a class="social reveal" href="https://www.youtube.com/@yusufahmed" target="_blank" rel="noopener noreferrer" aria-label="YouTube main channel">
+            <span class="social__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5V8.5L15.5 12z" />
+              </svg>
+            </span>
+            <span class="social__text">
+              <span class="social__label">YouTube — Main</span>
+              <span class="social__handle">@yusufahmed</span>
+            </span>
+          </a>
+
+          <a class="social reveal" href="https://www.youtube.com/@howimetteemo" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel — How I Met Teemo">
+            <span class="social__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5V8.5L15.5 12z" />
+              </svg>
+            </span>
+            <span class="social__text">
+              <span class="social__label">YouTube — How I Met Teemo</span>
+              <span class="social__handle">@howimetteemo</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__name">© <span id="year"></span> MD. Yusuf Ahmed. All rights reserved.</p>
+      <p class="footer__quote">"A kid with a million dreams and a centillion ideas to endeavor."</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="12" y1="19" x2="12" y2="5" />
+      <polyline points="5 12 12 5 19 12" />
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
