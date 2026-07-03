@@ -97,26 +97,30 @@ function initKinetic() {
   }, { passive: true });
 }
 
-if (quote && !reduced) {
-  document.fonts.ready.then(() => {
-    try {
-      const label = quote.textContent;
-      const wrap = document.createElement('span');
-      wrap.setAttribute('aria-hidden', 'true');
-      wrap.append(...quote.childNodes);
-      splitNode(wrap, chars);
-      const sr = document.createElement('span');
-      sr.textContent = label;
-      sr.style.cssText = 'position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)';
-      quote.append(sr, wrap);
-      quote.classList.add('split');
-      lockWidths();
-      cacheCenters();
-      if (finePointer) initKinetic();
-    } catch {
-      quote.classList.add('split');
-    }
-  });
+/* The quote is the LCP element: it must stay untouched static text until after
+   first paint. Desktop only, the first pointer movement over the hero wakes it —
+   split into characters, settle in, then weights follow the cursor. Touch devices
+   keep the static quote and spend zero extra work on it. */
+if (quote && !reduced && finePointer) {
+  quote.closest('.hero').addEventListener('mousemove', () => {
+    document.fonts.ready.then(() => {
+      try {
+        const label = quote.textContent;
+        const wrap = document.createElement('span');
+        wrap.setAttribute('aria-hidden', 'true');
+        wrap.append(...quote.childNodes);
+        splitNode(wrap, chars);
+        const sr = document.createElement('span');
+        sr.textContent = label;
+        sr.style.cssText = 'position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)';
+        quote.append(sr, wrap);
+        quote.classList.add('split', 'animate-chars');
+        lockWidths();
+        cacheCenters();
+        initKinetic();
+      } catch { /* static quote remains — nothing lost */ }
+    });
+  }, { once: true, passive: true });
 }
 
 /* ---------- fade-and-rise reveals ---------- */

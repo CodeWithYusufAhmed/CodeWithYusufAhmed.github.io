@@ -28,7 +28,6 @@
   <link rel="manifest" href="/site.webmanifest">
 
   <link rel="preload" href="/assets/fonts/BricolageGrotesque-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/IBMPlexSans-var.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
     /* ---------- tokens ---------- */
@@ -54,7 +53,7 @@
       --col:44rem;
     }
     /* ---------- fonts ---------- */
-    @font-face{font-family:'Bricolage Grotesque';src:url('/assets/fonts/BricolageGrotesque-var.woff2') format('woff2');font-weight:200 800;font-display:swap;}
+    @font-face{font-family:'Bricolage Grotesque';src:url('/assets/fonts/BricolageGrotesque-var.woff2') format('woff2');font-weight:200 800;font-display:optional;}
     @font-face{font-family:'IBM Plex Sans';src:url('/assets/fonts/IBMPlexSans-var.woff2') format('woff2');font-weight:300 700;font-display:swap;}
     @font-face{font-family:'Bricolage-fb';src:local('Arial');size-adjust:109.06%;ascent-override:85.27%;descent-override:24.76%;line-gap-override:0%;}
     @font-face{font-family:'Plex-fb';src:local('Arial');size-adjust:101.25%;ascent-override:101.24%;descent-override:27.16%;line-gap-override:0%;}
@@ -121,9 +120,8 @@
     @media (prefers-reduced-motion:no-preference){
       [data-rise]{opacity:0;animation:rise .5s var(--ease-out) forwards;animation-delay:var(--d,0ms)}
       @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-      html.js .hero-quote:not(.split){opacity:0}
-      .hero-quote.split .ch{opacity:0;transform:translateY(.38em);animation:chIn .55s var(--ease-out) forwards;animation-delay:calc(var(--i)*26ms + 180ms)}
-      @keyframes chIn{to{opacity:1;transform:none}}
+      .hero-quote.animate-chars .ch{transform:translateY(.32em);animation:chIn .5s var(--ease-out) forwards;animation-delay:calc(var(--i)*22ms)}
+      @keyframes chIn{to{transform:none}}
     }
   </style>
   <link rel="stylesheet" href="/styles.css">
@@ -214,9 +212,9 @@
             <p>My father gave me my first bicycle. Dhaka opens up differently when you pedal through it — I haven’t stopped since.</p>
             <figure class="tl-fig">
               <picture>
-                <source type="image/avif" srcset="/assets/img/bike-2013-560.avif 560w, /assets/img/bike-2013-1120.avif 1120w" sizes="(min-width:48em) 34rem, 92vw">
-                <source type="image/webp" srcset="/assets/img/bike-2013-560.webp 560w, /assets/img/bike-2013-1120.webp 1120w" sizes="(min-width:48em) 34rem, 92vw">
-                <img src="/assets/img/bike-2013-560.jpg" srcset="/assets/img/bike-2013-560.jpg 560w, /assets/img/bike-2013-1120.jpg 1120w" sizes="(min-width:48em) 34rem, 92vw" width="560" height="373" loading="lazy" decoding="async" alt="A white mountain bike with a blue helmet leaning on a lakeside railing, Dhaka skyline across the water.">
+                <source type="image/avif" srcset="/assets/img/bike-2013-560.avif 560w, /assets/img/bike-2013-760.avif 760w, /assets/img/bike-2013-1120.avif 1120w" sizes="(min-width:48em) 34rem, 92vw">
+                <source type="image/webp" srcset="/assets/img/bike-2013-560.webp 560w, /assets/img/bike-2013-760.webp 760w, /assets/img/bike-2013-1120.webp 1120w" sizes="(min-width:48em) 34rem, 92vw">
+                <img src="/assets/img/bike-2013-560.jpg" srcset="/assets/img/bike-2013-560.jpg 560w, /assets/img/bike-2013-760.jpg 760w, /assets/img/bike-2013-1120.jpg 1120w" sizes="(min-width:48em) 34rem, 92vw" width="560" height="373" loading="lazy" decoding="async" alt="A white mountain bike with a blue helmet leaning on a lakeside railing, Dhaka skyline across the water.">
               </picture>
               <figcaption>Gift from my father, 2013.</figcaption>
             </figure>
@@ -230,9 +228,9 @@
             <p>For years I’d watched volunteers selling flowers to fund education for underprivileged kids. In 2015 I finally applied, got selected — and volunteered for exactly one day. Then I went home and couldn’t stop thinking about the kids.</p>
             <figure class="tl-fig">
               <picture>
-                <source type="image/avif" srcset="/assets/img/jaago-2015-560.avif 560w, /assets/img/jaago-2015-1120.avif 1120w" sizes="(min-width:48em) 34rem, 92vw">
-                <source type="image/webp" srcset="/assets/img/jaago-2015-560.webp 560w, /assets/img/jaago-2015-1120.webp 1120w" sizes="(min-width:48em) 34rem, 92vw">
-                <img src="/assets/img/jaago-2015-560.jpg" srcset="/assets/img/jaago-2015-560.jpg 560w, /assets/img/jaago-2015-1120.jpg 1120w" sizes="(min-width:48em) 34rem, 92vw" width="560" height="373" loading="lazy" decoding="async" alt="A big crowd of volunteers in yellow shirts cheering with raised arms beside a lake in Dhaka.">
+                <source type="image/avif" srcset="/assets/img/jaago-2015-560.avif 560w, /assets/img/jaago-2015-760.avif 760w, /assets/img/jaago-2015-1120.avif 1120w" sizes="(min-width:48em) 34rem, 92vw">
+                <source type="image/webp" srcset="/assets/img/jaago-2015-560.webp 560w, /assets/img/jaago-2015-760.webp 760w, /assets/img/jaago-2015-1120.webp 1120w" sizes="(min-width:48em) 34rem, 92vw">
+                <img src="/assets/img/jaago-2015-560.jpg" srcset="/assets/img/jaago-2015-560.jpg 560w, /assets/img/jaago-2015-760.jpg 760w, /assets/img/jaago-2015-1120.jpg 1120w" sizes="(min-width:48em) 34rem, 92vw" width="560" height="373" loading="lazy" decoding="async" alt="A big crowd of volunteers in yellow shirts cheering with raised arms beside a lake in Dhaka.">
               </picture>
               <figcaption>Universal Children’s Day 2015 — my first day.</figcaption>
             </figure>
@@ -265,9 +263,9 @@
             </ol>
             <figure class="tl-fig">
               <picture>
-                <source type="image/avif" srcset="/assets/img/vbd-teach-560.avif 560w, /assets/img/vbd-teach-1120.avif 1120w" sizes="(min-width:48em) 34rem, 92vw">
-                <source type="image/webp" srcset="/assets/img/vbd-teach-560.webp 560w, /assets/img/vbd-teach-1120.webp 1120w" sizes="(min-width:48em) 34rem, 92vw">
-                <img src="/assets/img/vbd-teach-560.jpg" srcset="/assets/img/vbd-teach-560.jpg 560w, /assets/img/vbd-teach-1120.jpg 1120w" sizes="(min-width:48em) 34rem, 92vw" width="560" height="373" loading="lazy" decoding="async" alt="Yusuf in a yellow volunteer shirt guiding a young student who is drawing on a computer.">
+                <source type="image/avif" srcset="/assets/img/vbd-teach-560.avif 560w, /assets/img/vbd-teach-760.avif 760w, /assets/img/vbd-teach-1120.avif 1120w" sizes="(min-width:48em) 34rem, 92vw">
+                <source type="image/webp" srcset="/assets/img/vbd-teach-560.webp 560w, /assets/img/vbd-teach-760.webp 760w, /assets/img/vbd-teach-1120.webp 1120w" sizes="(min-width:48em) 34rem, 92vw">
+                <img src="/assets/img/vbd-teach-560.jpg" srcset="/assets/img/vbd-teach-560.jpg 560w, /assets/img/vbd-teach-760.jpg 760w, /assets/img/vbd-teach-1120.jpg 1120w" sizes="(min-width:48em) 34rem, 92vw" width="560" height="373" loading="lazy" decoding="async" alt="Yusuf in a yellow volunteer shirt guiding a young student who is drawing on a computer.">
               </picture>
               <figcaption>Teaching at a VBD classroom project.</figcaption>
             </figure>
