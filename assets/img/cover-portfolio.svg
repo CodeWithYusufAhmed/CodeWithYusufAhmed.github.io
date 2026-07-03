@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Stylized terminal window building this website">
+  <rect width="640" height="360" fill="#0a192f"/>
+  <circle cx="540" cy="60" r="150" fill="#112240" opacity="0.55"/>
+  <g>
+    <rect x="90" y="72" width="460" height="216" rx="14" fill="#112240" stroke="#233554"/>
+    <rect x="90" y="72" width="460" height="38" rx="14" fill="#233554"/>
+    <rect x="90" y="96" width="460" height="14" fill="#233554"/>
+    <circle cx="116" cy="91" r="6" fill="#8892b0"/>
+    <circle cx="138" cy="91" r="6" fill="#8892b0" opacity="0.6"/>
+    <circle cx="160" cy="91" r="6" fill="#efa63f"/>
+    <text x="118" y="148" font-family="Consolas,Menlo,monospace" font-size="17" fill="#8892b0">$ <tspan fill="#64ffda">claude</tspan> --dangerously-fast</text>
+    <text x="118" y="182" font-family="Consolas,Menlo,monospace" font-size="17" fill="#ccd6f6">building <tspan fill="#e6f1ff">mdyusufahmed.com</tspan> …</text>
+    <text x="118" y="216" font-family="Consolas,Menlo,monospace" font-size="17" fill="#8892b0">frameworks: <tspan fill="#efa63f">0</tspan>   requests: <tspan fill="#efa63f">first-party only</tspan></text>
+    <text x="118" y="250" font-family="Consolas,Menlo,monospace" font-size="17" fill="#64ffda">✓ deployed from a git push</text>
+    <rect x="118" y="262" width="11" height="19" fill="#64ffda"/>
+  </g>
+</svg>

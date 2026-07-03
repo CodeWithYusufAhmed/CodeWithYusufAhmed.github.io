@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="A play button over a rising story arc">
+  <rect width="640" height="360" fill="#0a192f"/>
+  <circle cx="520" cy="290" r="150" fill="#112240" opacity="0.55"/>
+  <path d="M60 268 C 180 268, 200 210, 280 196 S 430 210, 470 130 S 560 96, 588 88"
+        fill="none" stroke="#233554" stroke-width="3"/>
+  <path d="M60 268 C 180 268, 200 210, 280 196" fill="none" stroke="#efa63f" stroke-width="3"/>
+  <circle cx="280" cy="196" r="6" fill="#efa63f"/>
+  <g>
+    <rect x="252" y="104" width="136" height="96" rx="24" fill="#112240" stroke="#233554"/>
+    <path d="M304 128 L352 152 L304 176 Z" fill="#64ffda"/>
+  </g>
+  <g font-family="Consolas,Menlo,monospace" font-size="15">
+    <text x="60" y="318" fill="#8892b0">act i: <tspan fill="#ccd6f6">press record</tspan></text>
+    <text x="410" y="318" fill="#8892b0">dream: <tspan fill="#efa63f">big youtuber</tspan></text>
+  </g>
+</svg>

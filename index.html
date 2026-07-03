@@ -1,390 +1,458 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Personal portfolio of MD. Yusuf Ahmed — CSE student, storyteller, volunteer." />
-  <meta name="author" content="MD. Yusuf Ahmed" />
-  <meta name="theme-color" content="#0a0e27" />
-  <title>MD. Yusuf Ahmed — Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MD. Yusuf Ahmed — CSE student, storyteller, volunteer</title>
+  <meta name="description" content="Third-year CSE student at AIUB in Dhaka. Storyteller on YouTube, former General Secretary of Volunteer for Bangladesh (Dhaka District), and local-AI tinkerer.">
+  <meta name="author" content="MD. Yusuf Ahmed">
+  <meta name="theme-color" content="#0a192f">
+  <link rel="canonical" href="https://www.mdyusufahmed.com/">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="styles.css" />
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.mdyusufahmed.com/">
+  <meta property="og:title" content="MD. Yusuf Ahmed — CSE student, storyteller, volunteer">
+  <meta property="og:description" content="A kid with a million dreams and a centillion ideas to endeavor.">
+  <meta property="og:image" content="https://www.mdyusufahmed.com/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="MD. Yusuf Ahmed — CSE student, storyteller, volunteer — www.mdyusufahmed.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MD. Yusuf Ahmed — CSE student, storyteller, volunteer">
+  <meta name="twitter:description" content="A kid with a million dreams and a centillion ideas to endeavor.">
+  <meta name="twitter:image" content="https://www.mdyusufahmed.com/assets/img/og.jpg">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="preload" href="/assets/fonts/BricolageGrotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/IBMPlexSans-var.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    /* ---------- tokens ---------- */
+    :root{
+      --navy-950:#0a192f; --navy-900:#112240; --navy-700:#233554;
+      --slate-400:#8892b0; --slate-300:#a8b2d1; --slate-100:#ccd6f6;
+      --white:#e6f1ff; --mint:#64ffda; --genda:#efa63f;
+      /* fibonacci spacing: each step = sum of the two before */
+      --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1.25rem; --s5:2rem; --s6:3.25rem; --s7:5.25rem; --s8:8.5rem;
+      --text-xs:.8125rem; --text-sm:.9375rem;
+      --text-base:clamp(1rem,.95rem + .25vw,1.125rem);
+      --text-lg:clamp(1.125rem,1rem + .5vw,1.375rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.4vw,2.125rem);
+      --text-2xl:clamp(1.75rem,1.3rem + 2vw,2.5rem);
+      --text-hero:clamp(2.125rem,1.1rem + 5.4vw,4.375rem);
+      --r-s:6px; --r-m:12px; --r-l:20px;
+      --ease-out:cubic-bezier(.22,1,.36,1);
+      --ease-spring:cubic-bezier(.34,1.56,.64,1);
+      --t-fast:140ms; --t-med:320ms; --t-slow:560ms;
+      --font-display:'Bricolage Grotesque','Bricolage-fb',sans-serif;
+      --font-body:'IBM Plex Sans','Plex-fb',sans-serif;
+      --font-mono:ui-monospace,'Cascadia Mono',Consolas,Menlo,monospace;
+      --col:44rem;
+    }
+    /* ---------- fonts ---------- */
+    @font-face{font-family:'Bricolage Grotesque';src:url('/assets/fonts/BricolageGrotesque-var.woff2') format('woff2');font-weight:200 800;font-display:swap;}
+    @font-face{font-family:'IBM Plex Sans';src:url('/assets/fonts/IBMPlexSans-var.woff2') format('woff2');font-weight:300 700;font-display:swap;}
+    @font-face{font-family:'Bricolage-fb';src:local('Arial');size-adjust:109.06%;ascent-override:85.27%;descent-override:24.76%;line-gap-override:0%;}
+    @font-face{font-family:'Plex-fb';src:local('Arial');size-adjust:101.25%;ascent-override:101.24%;descent-override:27.16%;line-gap-override:0%;}
+    /* ---------- base ---------- */
+    *,*::before,*::after{box-sizing:border-box;margin:0}
+    html{color-scheme:dark}
+    @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+    body{
+      background:var(--navy-950);color:var(--slate-100);
+      font:400 var(--text-base)/1.65 var(--font-body);
+      -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    }
+    ::selection{background:var(--genda);color:var(--navy-950)}
+    a{color:var(--mint);text-decoration-thickness:1px;text-underline-offset:3px}
+    :focus-visible{outline:2px solid var(--mint);outline-offset:3px;border-radius:2px}
+    img{max-width:100%;height:auto;display:block}
+    /* grain — tiny tiled SVG noise at 3% */
+    body::after{
+      content:"";position:fixed;inset:0;z-index:2147483647;pointer-events:none;opacity:.03;
+      background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .skip{position:absolute;left:var(--s4);top:-4rem;z-index:100;background:var(--navy-900);color:var(--white);padding:var(--s2) var(--s4);border-radius:var(--r-s);transition:top var(--t-fast) var(--ease-out)}
+    .skip:focus{top:var(--s4)}
+    .mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+    /* ---------- nav ---------- */
+    .nav{
+      position:sticky;top:0;z-index:50;
+      background:color-mix(in srgb,var(--navy-950) 86%,transparent);
+      backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid color-mix(in srgb,var(--navy-700) 55%,transparent);
+    }
+    .nav-in{max-width:72rem;margin-inline:auto;padding:var(--s3) var(--s4);display:flex;align-items:center;justify-content:space-between;gap:var(--s4)}
+    .brand{display:flex;align-items:center;gap:var(--s2);text-decoration:none;color:var(--white);font-family:var(--font-display);font-weight:600;font-size:1.0625rem}
+    .brand svg{display:block}
+    .nav ul{display:flex;gap:clamp(var(--s3),3vw,var(--s5));list-style:none;padding:0}
+    .nav ul a{color:var(--slate-300);text-decoration:none;font-size:var(--text-sm);font-weight:500}
+    .nav ul a:hover{color:var(--mint)}
+    /* ---------- hero ---------- */
+    .hero{position:relative;max-width:72rem;margin-inline:auto;padding:clamp(var(--s6),12vh,var(--s8)) var(--s4) var(--s7);overflow:hidden}
+    .hero::before{
+      content:"";position:absolute;inset:-20% -10% auto;height:120%;z-index:-1;pointer-events:none;
+      background:radial-gradient(38rem 26rem at 78% 12%,var(--navy-900) 0%,transparent 68%);
+    }
+    .eyebrow{font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
+    .hero h1{font-family:var(--font-display);font-weight:640;font-size:var(--text-xl);color:var(--white);margin-top:var(--s3);letter-spacing:.005em}
+    .hero-quote{
+      font-family:var(--font-display);font-weight:420;font-size:var(--text-hero);
+      line-height:1.14;color:var(--white);letter-spacing:-.012em;
+      max-width:17ch;margin-top:var(--s5);text-wrap:balance;
+    }
+    .hero-quote em{font-style:normal}
+    .hero-quote .genda{color:var(--genda)}
+    .hero-quote .ch{display:inline-block}
+    .hero-foot{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s4) var(--s5);margin-top:var(--s6)}
+    .hero-loc{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--slate-400);letter-spacing:.08em}
+    .btn{
+      display:inline-block;background:var(--mint);color:var(--navy-950);text-decoration:none;
+      font-weight:600;font-size:var(--text-sm);padding:.8em 1.5em;border-radius:var(--r-m);
+      transition:transform var(--t-fast) var(--ease-spring),box-shadow var(--t-fast) var(--ease-out);
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px -8px color-mix(in srgb,var(--mint) 55%,transparent)}
+    .btn:active{transform:translateY(0)}
+    /* hero load sequence + kinetic quote */
+    @media (prefers-reduced-motion:no-preference){
+      [data-rise]{opacity:0;animation:rise .5s var(--ease-out) forwards;animation-delay:var(--d,0ms)}
+      @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+      html.js .hero-quote:not(.split){opacity:0}
+      .hero-quote.split .ch{opacity:0;transform:translateY(.38em);animation:chIn .55s var(--ease-out) forwards;animation-delay:calc(var(--i)*26ms + 180ms)}
+      @keyframes chIn{to{opacity:1;transform:none}}
+    }
+  </style>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/main.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "MD. Yusuf Ahmed",
+    "alternateName": "Yusuf Ahmed",
+    "url": "https://www.mdyusufahmed.com",
+    "image": "https://www.mdyusufahmed.com/assets/img/og.jpg",
+    "email": "mailto:askyusufanything@gmail.com",
+    "description": "Third-year Computer Science & Engineering student at AIUB in Dhaka, Bangladesh. Storyteller on YouTube and long-time volunteer with Volunteer for Bangladesh.",
+    "address": { "@type": "PostalAddress", "addressLocality": "Dhaka", "addressCountry": "BD" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "American International University-Bangladesh" },
+    "memberOf": { "@type": "Organization", "name": "Volunteer for Bangladesh" },
+    "sameAs": [
+      "https://github.com/CodeWithYusufAhmed",
+      "https://www.linkedin.com/in/mdyusufahmed/",
+      "https://www.youtube.com/@yusufahmed"
+    ]
+  }
+  </script>
 </head>
 <body>
-  <!-- Scroll progress bar -->
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <!-- Sticky navigation -->
-  <header class="nav" id="nav">
-    <div class="nav__container">
-      <a href="#home" class="nav__brand" aria-label="Yusuf Ahmed — Home">
-        <span class="nav__brand-mark" aria-hidden="true">Y</span>
-        <span class="nav__brand-name">Yusuf</span>
+  <header class="nav">
+    <div class="nav-in">
+      <a class="brand" href="#top" aria-label="Yusuf — back to top">
+        <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#112240"/><path d="M19 15 30 33M41 15 30 33M30 33v15" stroke="#64ffda" stroke-width="6" stroke-linecap="round" fill="none"/><circle cx="44" cy="48" r="5" fill="#efa63f"/></svg>
+        Yusuf
       </a>
-
       <nav aria-label="Primary">
-        <ul class="nav__list" id="navList">
-          <li><a href="#home" class="nav__link">Home</a></li>
-          <li><a href="#about" class="nav__link">About</a></li>
-          <li><a href="#education" class="nav__link">Education</a></li>
-          <li><a href="#experience" class="nav__link">Experience</a></li>
-          <li><a href="#hobbies" class="nav__link">Hobbies</a></li>
-          <li><a href="#connect" class="nav__link">Connect</a></li>
+        <ul>
+          <li><a href="#journey">Journey</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-
-      <div class="nav__actions">
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode" type="button">
-          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="5" />
-            <line x1="12" y1="1" x2="12" y2="3" />
-            <line x1="12" y1="21" x2="12" y2="23" />
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-            <line x1="1" y1="12" x2="3" y2="12" />
-            <line x1="21" y1="12" x2="23" y2="12" />
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-          </svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-          </svg>
-        </button>
-
-        <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navList" type="button">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
     </div>
   </header>
 
-  <main>
-    <!-- ===== Hero ===== -->
-    <section id="home" class="hero">
-      <div class="hero__bg" aria-hidden="true">
-        <div class="hero__blob hero__blob--1"></div>
-        <div class="hero__blob hero__blob--2"></div>
-        <div class="hero__blob hero__blob--3"></div>
-        <div class="hero__grid"></div>
+  <main id="main">
+    <!-- ============ hero ============ -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <p class="eyebrow" data-rise style="--d:0ms">CSE student&ensp;·&ensp;Storyteller&ensp;·&ensp;Volunteer</p>
+      <h1 data-rise style="--d:70ms">MD. Yusuf Ahmed</h1>
+      <p class="hero-quote" id="kinetic">“A kid with a <em>million</em> dreams and a <em class="genda">centillion</em> ideas to endeavor.”</p>
+      <div class="hero-foot" data-rise style="--d:140ms">
+        <a class="btn" href="#journey">See my journey</a>
+        <p class="hero-loc">Dhaka, Bangladesh</p>
       </div>
-
-      <div class="hero__inner">
-        <p class="hero__eyebrow reveal">Hello, I'm</p>
-        <h1 class="hero__name reveal">MD. Yusuf Ahmed</h1>
-        <p class="hero__role reveal">CSE Student &nbsp;•&nbsp; Storyteller &nbsp;•&nbsp; Volunteer</p>
-
-        <blockquote class="hero__quote">
-          <span class="sr-only">A kid with a million dreams and a centillion ideas to endeavor.</span>
-          <span class="typewriter" id="typewriter" aria-hidden="true"></span><span class="cursor" aria-hidden="true">|</span>
-        </blockquote>
-
-        <div class="hero__cta reveal">
-          <a href="#about" class="btn btn--primary">About Me</a>
-          <a href="#connect" class="btn btn--ghost">Get in Touch</a>
-        </div>
-      </div>
-
-      <a href="#about" class="hero__scroll" aria-label="Scroll to About section">
-        <span></span>
-      </a>
     </section>
 
-    <!-- ===== About ===== -->
-    <section id="about" class="section">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__kicker">01 — About</span>
-          <h2 class="section__title">A little about me</h2>
-        </header>
+    <!-- ============ journey ============ -->
+    <section class="section" id="journey" aria-labelledby="journey-h">
+      <header class="shead reveal">
+        <p class="kicker"><span aria-hidden="true">~/</span>journey</p>
+        <h2 id="journey-h">The journey so far</h2>
+        <p class="ssub">School, volunteering, and what each turned into — order is the whole point.</p>
+      </header>
 
-        <div class="about">
-          <div class="about__portrait reveal">
-            <div class="about__avatar" aria-hidden="true">
-              <svg viewBox="0 0 200 200" width="100%" height="100%">
-                <defs>
-                  <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#4f8cff" />
-                    <stop offset="100%" stop-color="#ffb84f" />
-                  </linearGradient>
-                </defs>
-                <circle cx="100" cy="100" r="96" fill="url(#avatarGrad)" opacity="0.18" />
-                <circle cx="100" cy="80" r="34" fill="url(#avatarGrad)" />
-                <path d="M40 180 Q40 130 100 130 Q160 130 160 180 Z" fill="url(#avatarGrad)" />
-              </svg>
-            </div>
-            <span class="about__chip">22 June 1999 • Dhaka, BD</span>
+      <ol class="timeline">
+        <li class="tl reveal">
+          <p class="tl-label">age&nbsp;3½</p>
+          <div class="tl-body">
+            <h3>Dhanmondi Tutorial</h3>
+            <p>Playgroup to class 5 at an English-medium school. I started at three and a half — the earliest version of the kid with the dreams.</p>
+            <figure class="tl-fig tl-fig--print">
+              <picture>
+                <source type="image/avif" srcset="/assets/img/yusuf-kid-320.avif">
+                <source type="image/webp" srcset="/assets/img/yusuf-kid-320.webp">
+                <img src="/assets/img/yusuf-kid-320.jpg" width="320" height="320" loading="lazy" decoding="async" alt="Yusuf at around five years old — a soft, faded photo print.">
+              </picture>
+              <figcaption>Exhibit A: the kid.</figcaption>
+            </figure>
           </div>
+        </li>
 
-          <div class="about__text reveal">
-            <p>
-              Born in Dhaka, Bangladesh in 1999, I'm currently a 3rd-year
-              <strong>Computer Science &amp; Engineering</strong> student at
-              <strong>American International University Bangladesh (AIUB)</strong>.
-            </p>
-            <p>
-              Outside of code, I live for stories — telling them, writing them, filming them.
-              I'm equally at home strumming a few chords on a guitar, sinking hours into a strange
-              video game, or showing up for the volunteer communities that shaped me.
-            </p>
-            <p>I'm a kid with a million dreams and, somehow, a centillion ideas left to chase.</p>
-            <ul class="about__tags" aria-label="Interests">
-              <li class="tag">Storytelling</li>
-              <li class="tag">Music</li>
-              <li class="tag">Gaming</li>
-              <li class="tag">Volunteering</li>
-            </ul>
+        <li class="tl reveal">
+          <p class="tl-label">2013</p>
+          <div class="tl-body">
+            <h3>Two wheels</h3>
+            <p>My father gave me my first bicycle. Dhaka opens up differently when you pedal through it — I haven’t stopped since.</p>
+            <figure class="tl-fig">
+              <picture>
+                <source type="image/avif" srcset="/assets/img/bike-2013-560.avif 560w, /assets/img/bike-2013-1120.avif 1120w" sizes="(min-width:48em) 34rem, 92vw">
+                <source type="image/webp" srcset="/assets/img/bike-2013-560.webp 560w, /assets/img/bike-2013-1120.webp 1120w" sizes="(min-width:48em) 34rem, 92vw">
+                <img src="/assets/img/bike-2013-560.jpg" srcset="/assets/img/bike-2013-560.jpg 560w, /assets/img/bike-2013-1120.jpg 1120w" sizes="(min-width:48em) 34rem, 92vw" width="560" height="373" loading="lazy" decoding="async" alt="A white mountain bike with a blue helmet leaning on a lakeside railing, Dhaka skyline across the water.">
+              </picture>
+              <figcaption>Gift from my father, 2013.</figcaption>
+            </figure>
           </div>
+        </li>
+
+        <li class="tl reveal">
+          <p class="tl-label">2015</p>
+          <div class="tl-body">
+            <h3>One single day</h3>
+            <p>For years I’d watched volunteers selling flowers to fund education for underprivileged kids. In 2015 I finally applied, got selected — and volunteered for exactly one day. Then I went home and couldn’t stop thinking about the kids.</p>
+            <figure class="tl-fig">
+              <picture>
+                <source type="image/avif" srcset="/assets/img/jaago-2015-560.avif 560w, /assets/img/jaago-2015-1120.avif 1120w" sizes="(min-width:48em) 34rem, 92vw">
+                <source type="image/webp" srcset="/assets/img/jaago-2015-560.webp 560w, /assets/img/jaago-2015-1120.webp 1120w" sizes="(min-width:48em) 34rem, 92vw">
+                <img src="/assets/img/jaago-2015-560.jpg" srcset="/assets/img/jaago-2015-560.jpg 560w, /assets/img/jaago-2015-1120.jpg 1120w" sizes="(min-width:48em) 34rem, 92vw" width="560" height="373" loading="lazy" decoding="async" alt="A big crowd of volunteers in yellow shirts cheering with raised arms beside a lake in Dhaka.">
+              </picture>
+              <figcaption>Universal Children’s Day 2015 — my first day.</figcaption>
+            </figure>
+          </div>
+        </li>
+
+        <li class="tl reveal">
+          <p class="tl-label">2016</p>
+          <div class="tl-body">
+            <h3>The high-five</h3>
+            <p>I joined <strong>Volunteer for Bangladesh</strong> — JAAGO Foundation’s youth wing — and met the kids the flowers were for. They high-fived me. One thought stuck, and it hasn’t left:</p>
+          </div>
+        </li>
+      </ol>
+
+      <blockquote class="pull reveal">
+        <p>“I have to do something for them, no matter how small my contribution is.”</p>
+      </blockquote>
+
+      <ol class="timeline timeline--cont">
+        <li class="tl tl--milestone reveal">
+          <p class="tl-label">2016–19</p>
+          <div class="tl-body">
+            <h3>The VBD years</h3>
+            <p>Four years with Volunteer for Bangladesh, Dhaka — climbing one role at a time:</p>
+            <ol class="climb" aria-label="Roles at Volunteer for Bangladesh, in order">
+              <li>Volunteer</li>
+              <li>Committee Member</li>
+              <li class="climb-top">General Secretary <span class="climb-place">Dhaka District</span></li>
+            </ol>
+            <figure class="tl-fig">
+              <picture>
+                <source type="image/avif" srcset="/assets/img/vbd-teach-560.avif 560w, /assets/img/vbd-teach-1120.avif 1120w" sizes="(min-width:48em) 34rem, 92vw">
+                <source type="image/webp" srcset="/assets/img/vbd-teach-560.webp 560w, /assets/img/vbd-teach-1120.webp 1120w" sizes="(min-width:48em) 34rem, 92vw">
+                <img src="/assets/img/vbd-teach-560.jpg" srcset="/assets/img/vbd-teach-560.jpg 560w, /assets/img/vbd-teach-1120.jpg 1120w" sizes="(min-width:48em) 34rem, 92vw" width="560" height="373" loading="lazy" decoding="async" alt="Yusuf in a yellow volunteer shirt guiding a young student who is drawing on a computer.">
+              </picture>
+              <figcaption>Teaching at a VBD classroom project.</figcaption>
+            </figure>
+          </div>
+        </li>
+
+        <li class="tl reveal">
+          <p class="tl-label">SSC</p>
+          <div class="tl-body">
+            <h3>Scholars School &amp; College</h3>
+            <p>English Version, classes 7 to 10. Walked out with a <span class="mono">GPA 5.0</span>.</p>
+          </div>
+        </li>
+
+        <li class="tl reveal">
+          <p class="tl-label">HSC</p>
+          <div class="tl-body">
+            <h3>BAF Shaheen College</h3>
+            <p>Classes 11 and 12 — the runway to university.</p>
+          </div>
+        </li>
+
+        <li class="tl tl--now reveal">
+          <p class="tl-label">now</p>
+          <div class="tl-body">
+            <h3>AIUB — B.Sc. in Computer Science &amp; Engineering</h3>
+            <p>Third year, ongoing. These days I’m an alumni member at VBD — still volunteering whenever I can — and I mentor juniors at university, teaching them the topics they missed in class. My proudest moments are when they score an A+.</p>
+          </div>
+        </li>
+      </ol>
+
+      <footer class="orgs reveal">
+        <p class="orgs-lead">Along the way I also showed up for</p>
+        <ul class="chips" aria-label="Organizations I volunteered with">
+          <li>TEDxDhaka</li>
+          <li>BYLC</li>
+          <li>Save the Children</li>
+          <li>BDCyclists</li>
+        </ul>
+      </footer>
+    </section>
+
+    <!-- ============ work ============ -->
+    <section class="section" id="work" aria-labelledby="work-h">
+      <header class="shead reveal">
+        <p class="kicker"><span aria-hidden="true">~/</span>work</p>
+        <h2 id="work-h">Selected work</h2>
+        <p class="ssub">Three things I build and keep building.</p>
+      </header>
+
+      <div class="cards">
+        <article class="card reveal">
+          <!-- TODO(Yusuf): swap this designed SVG cover for a real screenshot if you prefer -->
+          <img class="card-cover" src="/assets/img/cover-portfolio.svg" width="640" height="360" loading="lazy" decoding="async" alt="">
+          <h3>This portfolio</h3>
+          <p>Most of my visitors browse on mid-range phones over mobile data — and most portfolios ship megabytes at them. This one is pure static HTML, CSS, and vanilla JavaScript, designed and built with Claude Code: fonts self-hosted, zero third-party requests, deployed to GitHub Pages under my own domain from a single git push.</p>
+          <ul class="tags" aria-label="Stack">
+            <li>HTML + CSS + JS</li><li>Claude Code</li><li>GitHub Pages</li>
+          </ul>
+          <p class="card-links">
+            <a href="https://github.com/CodeWithYusufAhmed/CodeWithYusufAhmed.github.io">View the code<span aria-hidden="true"> ↗</span></a>
+            <span class="card-note">live — you’re looking at it</span>
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <!-- TODO(Yusuf): swap this designed SVG cover for a photo of the actual machine if you like -->
+          <img class="card-cover" src="/assets/img/cover-homelab.svg" width="640" height="360" loading="lazy" decoding="async" alt="">
+          <h3>Local AI homelab</h3>
+          <p>I wanted to know what these models really are when nobody’s API sits in the middle. So I run inference on my own desktop — Ollama with open-weight models like Hermes, squeezed to fit my GPU and RAM. It’s my playground for understanding how these systems actually behave.</p>
+          <ul class="tags" aria-label="Stack">
+            <li>Ollama</li><li>Open-weight LLMs</li><li>Desktop GPU</li>
+          </ul>
+          <p class="card-links"><span class="card-note">runs on my desk, not on a server</span></p>
+        </article>
+
+        <article class="card reveal">
+          <!-- TODO(Yusuf): swap this designed SVG cover for a channel-art frame or thumbnail collage -->
+          <img class="card-cover" src="/assets/img/cover-youtube.svg" width="640" height="360" loading="lazy" decoding="async" alt="">
+          <h3>YouTube storytelling</h3>
+          <p>I make videos, tell stories, and dream of becoming a big YouTuber someday. The main channel is <strong>@yusufahmed</strong>; the gaming detours started earlier on a little channel called <em>How I met Teemo</em>. Every upload teaches me shooting, editing, and how to hold an audience.</p>
+          <ul class="tags" aria-label="Stack">
+            <li>Storytelling</li><li>Filming</li><li>Editing</li>
+          </ul>
+          <p class="card-links">
+            <a href="https://www.youtube.com/@yusufahmed">Watch @yusufahmed<span aria-hidden="true"> ↗</span></a>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ skills ============ -->
+    <section class="section" id="skills" aria-labelledby="skills-h">
+      <header class="shead reveal">
+        <p class="kicker"><span aria-hidden="true">~/</span>skills</p>
+        <h2 id="skills-h">What I work with</h2>
+        <p class="ssub">No progress bars. Just what I know and how I know it.</p>
+      </header>
+
+      <div class="skills">
+        <section class="sg reveal" aria-labelledby="sg-lang">
+          <h3 id="sg-lang">Languages</h3>
+          <ul>
+            <li><strong>C</strong><span>where it started — <span class="mono">98/100</span> in my university course</span></li>
+            <li><strong>C++</strong><span>the favorite</span></li>
+            <li><strong>Java</strong><span>built my first Windows GUI app with it</span></li>
+            <li><strong>Python</strong><span>learning since the lockdowns — still leveling up</span></li>
+          </ul>
+        </section>
+
+        <section class="sg reveal" aria-labelledby="sg-web">
+          <h3 id="sg-web">Web</h3>
+          <ul>
+            <li><strong>HTML</strong><span>semantic first</span></li>
+            <li><strong>CSS</strong><span>custom properties over frameworks</span></li>
+            <li><strong>JavaScript</strong><span>vanilla, and only where it earns its bytes</span></li>
+          </ul>
+          <p class="sg-note">I build websites with AI as my pair — this site included.</p>
+        </section>
+
+        <section class="sg reveal" aria-labelledby="sg-ai">
+          <h3 id="sg-ai">AI &amp; systems</h3>
+          <ul>
+            <li><strong>Ollama &amp; local LLMs</strong><span>self-hosted inference on my own desktop</span></li>
+            <li><strong>Linux / Ubuntu</strong><span>where the homelab lives</span></li>
+            <li><strong>Claude Code</strong><span>my building partner</span></li>
+            <li><strong>Homelab hardware</strong><span>GPU, RAM, and the joy of constraints</span></li>
+          </ul>
+        </section>
+
+        <section class="sg reveal" aria-labelledby="sg-tools">
+          <h3 id="sg-tools">Tools</h3>
+          <ul>
+            <li><strong>Git &amp; GitHub</strong><span>version everything</span></li>
+            <li><strong>GitHub Pages + Actions</strong><span>this site ships with them</span></li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <!-- ============ beyond ============ -->
+    <section class="section" id="beyond" aria-labelledby="beyond-h">
+      <header class="shead reveal">
+        <p class="kicker"><span aria-hidden="true">~/</span>beyond</p>
+        <h2 id="beyond-h">Beyond the code</h2>
+      </header>
+
+      <div class="beyond">
+        <figure class="beyond-fig reveal">
+          <picture>
+            <source type="image/avif" srcset="/assets/img/boat-dhaka-760.avif 760w, /assets/img/boat-dhaka-1280.avif 1280w" sizes="(min-width:48em) 40rem, 92vw">
+            <source type="image/webp" srcset="/assets/img/boat-dhaka-760.webp 760w, /assets/img/boat-dhaka-1280.webp 1280w" sizes="(min-width:48em) 40rem, 92vw">
+            <img src="/assets/img/boat-dhaka-760.jpg" srcset="/assets/img/boat-dhaka-760.jpg 760w, /assets/img/boat-dhaka-1280.jpg 1280w" sizes="(min-width:48em) 40rem, 92vw" width="760" height="506" loading="lazy" decoding="async" alt="Yusuf sitting cross-legged in a wooden boat in the middle of a wide river, looking into the distance.">
+          </picture>
+          <figcaption>Mid-river, mid-thought — my favorite photo.</figcaption>
+        </figure>
+        <div class="beyond-text reveal">
+          <p>Off-screen I’m usually strumming a guitar and freestyle-singing in Bangla and English. I’ve been cycling since 2013 — first bike from my father, the second a gift from my uncle — and I’ve ridden with BDCyclists.</p>
+          <p>Evenings are for PUBG Mobile with friends; the road there ran through Call of Duty and League of Legends. And always: photography, video editing, and the dream of being a big YouTuber someday.</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== Education ===== -->
-    <section id="education" class="section section--alt">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__kicker">02 — Education</span>
-          <h2 class="section__title">The road so far</h2>
-        </header>
+    <!-- ============ contact ============ -->
+    <section class="section" id="contact" aria-labelledby="contact-h">
+      <header class="shead reveal">
+        <p class="kicker"><span aria-hidden="true">~/</span>contact</p>
+        <h2 id="contact-h">Say hi</h2>
+        <p class="ssub">No forms, no newsletters. One inbox, three profiles.</p>
+      </header>
 
-        <ol class="timeline" aria-label="Education timeline">
-          <li class="timeline__item reveal">
-            <span class="timeline__dot" aria-hidden="true"></span>
-            <article class="timeline__card">
-              <span class="timeline__period">Playgroup – Class 5</span>
-              <h3 class="timeline__title">Dhanmondi Tutorial</h3>
-              <p class="timeline__desc">English Medium School — where my curiosity first found a desk.</p>
-            </article>
-          </li>
-
-          <li class="timeline__item reveal">
-            <span class="timeline__dot" aria-hidden="true"></span>
-            <article class="timeline__card">
-              <span class="timeline__period">Class 7 – Class 10</span>
-              <h3 class="timeline__title">Scholars School &amp; College</h3>
-              <p class="timeline__desc">English Version. Friendships, exams, and the first taste of who I wanted to be.</p>
-            </article>
-          </li>
-
-          <li class="timeline__item reveal">
-            <span class="timeline__dot" aria-hidden="true"></span>
-            <article class="timeline__card">
-              <span class="timeline__period">Class 11 – 12 (HSC)</span>
-              <h3 class="timeline__title">B.A.F. Shaheen College</h3>
-              <p class="timeline__desc">Discipline, late-night study, and the runway to university.</p>
-            </article>
-          </li>
-
-          <li class="timeline__item timeline__item--current reveal">
-            <span class="timeline__dot" aria-hidden="true"></span>
-            <article class="timeline__card">
-              <span class="timeline__period">2022 — Present</span>
-              <h3 class="timeline__title">B.Sc. in Computer Science &amp; Engineering</h3>
-              <p class="timeline__desc">American International University Bangladesh (AIUB). Currently in my 3rd year — turning ideas into code.</p>
-            </article>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ===== Experience ===== -->
-    <section id="experience" class="section">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__kicker">03 — Experience</span>
-          <h2 class="section__title">Communities I've called home</h2>
-          <p class="section__subtitle">A decade of showing up where it counts.</p>
-        </header>
-
-        <div class="cards">
-          <article class="card reveal">
-            <span class="card__icon" aria-hidden="true">JF</span>
-            <h3 class="card__title">JAAGO Foundation</h3>
-            <p class="card__meta">2015 — Present</p>
-            <p class="card__desc">
-              Volunteer → Core Volunteer → Committee Member → General Secretary → 1-month Intern → Alumni Member.
-            </p>
-          </article>
-
-          <article class="card reveal">
-            <span class="card__icon" aria-hidden="true">VB</span>
-            <h3 class="card__title">Volunteer for Bangladesh</h3>
-            <p class="card__meta">2015 — Present</p>
-            <p class="card__desc">A decade of community service, and counting.</p>
-          </article>
-
-          <article class="card reveal">
-            <span class="card__icon" aria-hidden="true">TX</span>
-            <h3 class="card__title">TEDxDhaka</h3>
-            <p class="card__meta">Volunteer</p>
-            <p class="card__desc">Helped bring ideas worth spreading to Dhaka's stage.</p>
-          </article>
-
-          <article class="card reveal">
-            <span class="card__icon" aria-hidden="true">BL</span>
-            <h3 class="card__title">BYLC</h3>
-            <p class="card__meta">Bangladesh Youth Leadership Center</p>
-            <p class="card__desc">Building leadership and civic engagement, one program at a time.</p>
-          </article>
-
-          <article class="card reveal">
-            <span class="card__icon" aria-hidden="true">SC</span>
-            <h3 class="card__title">Save the Children</h3>
-            <p class="card__meta">Bangladesh</p>
-            <p class="card__desc">Standing alongside one of the world's leading child rights organizations.</p>
-          </article>
-
-          <article class="card reveal">
-            <span class="card__icon" aria-hidden="true">BC</span>
-            <h3 class="card__title">BDCyclists</h3>
-            <p class="card__meta">Cycling Community</p>
-            <p class="card__desc">Two wheels, good company, and the streets of Dhaka at dawn.</p>
-          </article>
-
-          <article class="card card--more reveal">
-            <span class="card__icon" aria-hidden="true">+</span>
-            <h3 class="card__title">…and many more</h3>
-            <p class="card__desc">Drop me a message if you want the full list — I never seem to stop signing up.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Hobbies ===== -->
-    <section id="hobbies" class="section section--alt">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__kicker">04 — Hobbies &amp; Passions</span>
-          <h2 class="section__title">What I do when I'm not studying</h2>
-        </header>
-
-        <div class="hobbies">
-          <article class="hobby reveal">
-            <div class="hobby__emoji" aria-hidden="true">🎸</div>
-            <h3 class="hobby__title">Music</h3>
-            <p class="hobby__desc">I know exactly 4 chords on the guitar — and I'll freestyle in Bangla and English over all of them.</p>
-          </article>
-
-          <article class="hobby reveal">
-            <div class="hobby__emoji" aria-hidden="true">🎮</div>
-            <h3 class="hobby__title">Gaming</h3>
-            <p class="hobby__desc">Cut my teeth on Call of Duty: Modern Warfare. Mained League of Legends as a Teemo enthusiast since Season 6. These days I'm on PUBG Mobile with friends.</p>
-          </article>
-
-          <article class="hobby reveal">
-            <div class="hobby__emoji" aria-hidden="true">📹</div>
-            <h3 class="hobby__title">YouTube &amp; Storytelling</h3>
-            <p class="hobby__desc">Runs my channel "How I Met Teemo." Photography, videography, editing — anything that helps me tell a story.</p>
-          </article>
-
-          <article class="hobby reveal">
-            <div class="hobby__emoji" aria-hidden="true">🚴</div>
-            <h3 class="hobby__title">Cycling</h3>
-            <p class="hobby__desc">Active with BDCyclists — early-morning rides through a city that's still asleep.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Connect ===== -->
-    <section id="connect" class="section">
-      <div class="container">
-        <header class="section__header reveal">
-          <span class="section__kicker">05 — Connect</span>
-          <h2 class="section__title">Let's stay in touch</h2>
-          <p class="section__subtitle">Find me here, or just drop a "hi."</p>
-        </header>
-
-        <div class="socials">
-          <a class="social reveal" href="https://www.mdyusufahmed.com" target="_blank" rel="noopener noreferrer" aria-label="Personal website">
-            <span class="social__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="2" y1="12" x2="22" y2="12" />
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </svg>
-            </span>
-            <span class="social__text">
-              <span class="social__label">Website</span>
-              <span class="social__handle">mdyusufahmed.com</span>
-            </span>
-          </a>
-
-          <a class="social reveal" href="https://www.facebook.com/yusuf.ahmed4" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
-            <span class="social__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.19 2.24.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12z" />
-              </svg>
-            </span>
-            <span class="social__text">
-              <span class="social__label">Facebook</span>
-              <span class="social__handle">yusuf.ahmed4</span>
-            </span>
-          </a>
-
-          <a class="social reveal" href="https://www.instagram.com/yusuf.ahmed71/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
-            <span class="social__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-            </span>
-            <span class="social__text">
-              <span class="social__label">Instagram</span>
-              <span class="social__handle">@yusuf.ahmed71</span>
-            </span>
-          </a>
-
-          <a class="social reveal" href="https://www.youtube.com/@yusufahmed" target="_blank" rel="noopener noreferrer" aria-label="YouTube main channel">
-            <span class="social__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5V8.5L15.5 12z" />
-              </svg>
-            </span>
-            <span class="social__text">
-              <span class="social__label">YouTube — Main</span>
-              <span class="social__handle">@yusufahmed</span>
-            </span>
-          </a>
-
-          <a class="social reveal" href="https://www.youtube.com/@howimetteemo" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel — How I Met Teemo">
-            <span class="social__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5V8.5L15.5 12z" />
-              </svg>
-            </span>
-            <span class="social__text">
-              <span class="social__label">YouTube — How I Met Teemo</span>
-              <span class="social__handle">@howimetteemo</span>
-            </span>
-          </a>
-        </div>
+      <div class="contact reveal">
+        <a class="contact-mail" href="mailto:askyusufanything@gmail.com">askyusufanything@gmail.com</a>
+        <ul class="contact-links">
+          <li><a href="https://github.com/CodeWithYusufAhmed">GitHub<span aria-hidden="true"> ↗</span></a></li>
+          <li><a href="https://www.linkedin.com/in/mdyusufahmed/">LinkedIn<span aria-hidden="true"> ↗</span></a></li>
+          <li><a href="https://www.youtube.com/@yusufahmed">YouTube<span aria-hidden="true"> ↗</span></a></li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer__inner">
-      <p class="footer__name">© <span id="year"></span> MD. Yusuf Ahmed. All rights reserved.</p>
-      <p class="footer__quote">"A kid with a million dreams and a centillion ideas to endeavor."</p>
-    </div>
+    <p>© <span class="mono">2026</span> MD. Yusuf Ahmed · Dhaka<span class="dot" aria-hidden="true"></span></p>
+    <p class="footer-sub">Designed &amp; built with Claude Code. Pure static — no frameworks were harmed.</p>
   </footer>
-
-  <button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <line x1="12" y1="19" x2="12" y2="5" />
-      <polyline points="5 12 12 5 19 12" />
-    </svg>
-  </button>
-
-  <script src="script.js"></script>
 </body>
 </html>
