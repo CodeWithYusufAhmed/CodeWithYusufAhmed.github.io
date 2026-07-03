@@ -141,6 +141,58 @@ if (reduced || !('IntersectionObserver' in window)) {
   revealEls.forEach((el) => io.observe(el));
 }
 
+/* ---------- beyond slideshow ----------
+   No-JS baseline is a swipeable scroll-snap gallery with every caption visible.
+   JS adds dots, arrows, and gentle autoplay that yields to the visitor. */
+const shell = document.querySelector('.slideshow');
+if (shell && 'IntersectionObserver' in window) {
+  const scroller = shell.querySelector('.slides');
+  const slides = [...scroller.children];
+  const ui = shell.querySelector('.ss-ui');
+  const dotsWrap = shell.querySelector('.ss-dots');
+  let index = 0, timer = 0, hovering = false, onScreen = true, stopped = reduced;
+
+  const dots = slides.map((_, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'ss-dot';
+    b.setAttribute('aria-label', `Go to photo ${i + 1}`);
+    b.addEventListener('click', () => { go(i); halt(); });
+    dotsWrap.append(b);
+    return b;
+  });
+  if (ui) ui.hidden = false;
+
+  const setActive = (i) => {
+    index = i;
+    dots.forEach((d, j) => d.setAttribute('aria-current', j === i ? 'true' : 'false'));
+  };
+  const go = (i) => {
+    i = (i + slides.length) % slides.length;
+    scroller.scrollTo({ left: i * scroller.clientWidth, behavior: reduced ? 'auto' : 'smooth' });
+    setActive(i);
+  };
+  const halt = () => { stopped = true; clearInterval(timer); };
+
+  shell.querySelectorAll('.ss-btn').forEach((btn) =>
+    btn.addEventListener('click', () => { go(index + Number(btn.dataset.dir)); halt(); }));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) setActive(slides.indexOf(e.target)); });
+  }, { root: scroller, threshold: 0.6 });
+  slides.forEach((s) => io.observe(s));
+
+  shell.addEventListener('pointerenter', () => { hovering = true; }, { passive: true });
+  shell.addEventListener('pointerleave', () => { hovering = false; }, { passive: true });
+  shell.addEventListener('touchstart', halt, { passive: true });
+  new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; }).observe(shell);
+
+  setActive(0);
+  if (!stopped) timer = setInterval(() => {
+    if (!hovering && onScreen && !document.hidden) go(index + 1);
+  }, 5200);
+}
+
 /* ---------- easter eggs (original text only) ---------- */
 console.log(
   '%c~/yusuf $%c hello, curious one. the site you are inspecting is pure static — view source, it all fits.\n%cpsst: type  t e e m o  anywhere on the page.',
