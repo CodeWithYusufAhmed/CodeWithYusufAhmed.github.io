@@ -107,7 +107,7 @@ figcaption{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--sla
 /* ---------- featured wide card (Pulse Deck) ---------- */
 .card--wide{grid-column:1/-1}
 .card-body{display:flex;flex-direction:column;gap:var(--s3);min-width:0}
-.card-cover--video{width:100%;height:auto}
+.card-cover--video{width:100%;max-width:52rem;height:auto;margin-inline:auto}
 .card-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s3) var(--s4)}
 .card-head .btn{font-size:var(--text-xs);padding:.7em 1.3em}
 .card-feats-lead{font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--slate-400)}
