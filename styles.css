@@ -104,6 +104,20 @@ figcaption{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--sla
 .card-links a{font-weight:500}
 .card-note{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--slate-400)}
 
+/* ---------- featured wide card (Pulse Deck) ---------- */
+.card--wide{grid-column:1/-1}
+.card-body{display:flex;flex-direction:column;gap:var(--s3);min-width:0}
+.card-cover--video{width:100%;height:auto}
+.card-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s3) var(--s4)}
+.card-head .btn{font-size:var(--text-xs);padding:.7em 1.3em}
+.card-feats-lead{font-family:var(--font-mono);font-size:var(--text-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--slate-400)}
+.card-feats{list-style:none;padding:0;display:grid;gap:var(--s2);color:var(--slate-300);font-size:var(--text-sm)}
+.card-feats li{position:relative;padding-left:1.35em}
+.card-feats li::before{content:"▸";position:absolute;left:0;top:0;color:var(--mint)}
+@media (min-width:48em){
+  .card--wide .card-feats{grid-template-columns:1fr 1fr;column-gap:var(--s5)}
+}
+
 /* ---------- skills ---------- */
 .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s5) var(--s6);max-width:56rem}
 .sg h3{font-size:1.0625rem;padding-bottom:var(--s2);border-bottom:1px solid var(--navy-700)}
@@ -169,6 +183,11 @@ html.js .reveal.in{
 }
 
 /* ---------- my rig (spec readout) ---------- */
+.rig-wrap{max-width:64rem;margin-inline:auto;display:grid;gap:var(--s5);align-items:start}
+@media (min-width:48em){.rig-wrap{grid-template-columns:minmax(0,1fr) minmax(0,.9fr)}}
+.rig-wrap .rig{max-width:none;margin-inline:0;min-width:0}
+.rig-fig{margin:0;min-width:0}
+.rig-fig img{width:100%;border-radius:var(--r-l);border:1px solid var(--navy-700);background:var(--navy-900)}
 .rig{list-style:none;padding:0;margin:0;max-width:var(--col);margin-inline:auto;border-top:1px solid var(--navy-700)}
 .rig-row{
   display:grid;grid-template-columns:4.25rem 1fr auto;align-items:baseline;gap:var(--s2) var(--s4);

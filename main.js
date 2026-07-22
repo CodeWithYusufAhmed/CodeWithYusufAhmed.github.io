@@ -193,6 +193,23 @@ if (shell && 'IntersectionObserver' in window) {
   }, 5200);
 }
 
+/* ---------- Pulse Deck demo: plays while on screen ----------
+   Muted + looping. Starts when the card scrolls into view, pauses off-screen
+   to spare batteries. If the visitor presses pause, their choice wins. */
+const demo = document.querySelector('video[data-autoplay]');
+if (demo && 'IntersectionObserver' in window) {
+  let userPaused = false, ioPausing = false;
+  demo.addEventListener('pause', () => {
+    if (ioPausing) { ioPausing = false; return; } // that was us, not the visitor
+    if (!demo.ended) userPaused = true;
+  });
+  demo.addEventListener('play', () => { userPaused = false; });
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { if (!userPaused) demo.play().catch(() => {}); }
+    else if (!demo.paused) { ioPausing = true; demo.pause(); }
+  }, { threshold: 0.3 }).observe(demo);
+}
+
 /* ---------- easter eggs (original text only) ---------- */
 console.log(
   '%c~/yusuf $%c hello, curious one. the site you are inspecting is pure static — view source, it all fits.\n%cpsst: type  t e e m o  anywhere on the page.',

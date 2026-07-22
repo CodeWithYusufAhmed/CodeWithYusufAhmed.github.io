@@ -160,7 +160,7 @@
       <nav aria-label="Primary">
         <ul>
           <li><a href="#journey">Journey</a></li>
-          <li><a href="#work">Work</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -292,15 +292,42 @@
       </footer>
     </section>
 
-    <!-- ============ work ============ -->
-    <section class="section" id="work" aria-labelledby="work-h">
+    <!-- ============ projects ============ -->
+    <section class="section" id="projects" aria-labelledby="projects-h">
       <header class="shead reveal">
-        <p class="kicker"><span aria-hidden="true">~/</span>work</p>
-        <h2 id="work-h">Selected work</h2>
-        <p class="ssub">Three things I build and keep building.</p>
+        <p class="kicker"><span aria-hidden="true">~/</span>projects</p>
+        <h2 id="projects-h">Projects</h2>
+        <p class="ssub">Four things I build and keep building.</p>
       </header>
 
       <div class="cards">
+        <article class="card card--wide reveal">
+          <video class="card-cover card-cover--video" src="/assets/vid/pulsedeck-demo.mp4" poster="/assets/img/pulsedeck-poster.jpg" width="2340" height="1080" controls loop muted playsinline preload="metadata" data-autoplay aria-label="Pulse Deck demo — live CPU, GPU, and RAM stats on an Android phone">
+            Your browser doesn’t support embedded video — <a href="/assets/vid/pulsedeck-demo.mp4">download the demo</a> instead.
+          </video>
+          <div class="card-body">
+            <div class="card-head">
+              <h3>Pulse Deck</h3>
+              <a class="btn" href="https://github.com/CodeWithYusufAhmed/pulsedeck/releases">Download from GitHub<span aria-hidden="true"> ↗</span></a>
+            </div>
+            <p>Make your old Android phone into a monitoring system for your PC — where you can see CPU, GPU &amp; RAM usage and their temperature.</p>
+            <p class="card-feats-lead">Features of the app</p>
+            <ul class="card-feats" aria-label="App features">
+              <li>Auto portrait &amp; landscape support</li>
+              <li>Create any color you like — both text and background</li>
+              <li>Use gradients, GIFs, and videos as backgrounds</li>
+              <li>Keep Screen ON toggle — put it in front of you, connect a charger, and use it forever</li>
+              <li>Burn protection — shifts the display +2&nbsp;pixels every minute</li>
+            </ul>
+            <ul class="tags" aria-label="Stack">
+              <li>Android</li><li>Kotlin</li><li>Jetpack Compose</li>
+            </ul>
+            <p class="card-links">
+              <span class="card-note">demo above — recorded straight off the phone</span>
+            </p>
+          </div>
+        </article>
+
         <article class="card reveal">
           <!-- TODO(Yusuf): swap this designed SVG cover for a real screenshot if you prefer -->
           <img class="card-cover" src="/assets/img/cover-portfolio.svg" width="640" height="360" loading="lazy" decoding="async" alt="">
@@ -388,6 +415,7 @@
         <p class="ssub">The tower I game on — and the same box that runs my local models.</p>
       </header>
 
+      <div class="rig-wrap">
       <ul class="rig reveal" aria-label="Desktop PC specification">
         <li class="rig-row rig-row--star">
           <span class="rig-cat">GPU</span>
@@ -425,6 +453,15 @@
           <span class="rig-spec">750 W · 80+ Gold</span>
         </li>
       </ul>
+      <figure class="rig-fig reveal">
+        <picture>
+          <source type="image/avif" srcset="/assets/img/rig-760.avif 760w, /assets/img/rig-1520.avif 1520w" sizes="(min-width:48em) 28rem, 92vw">
+          <source type="image/webp" srcset="/assets/img/rig-760.webp 760w, /assets/img/rig-1520.webp 1520w" sizes="(min-width:48em) 28rem, 92vw">
+          <img src="/assets/img/rig-760.jpg" srcset="/assets/img/rig-760.jpg 760w, /assets/img/rig-1520.jpg 1520w" sizes="(min-width:48em) 28rem, 92vw" width="760" height="570" loading="lazy" decoding="async" alt="The rig on the desk: a white tower with RGB fans and a ZOTAC GPU behind tempered glass, beside a monitor, laptop, mic arm, and a purple-and-white mechanical keyboard.">
+        </picture>
+        <figcaption>The box itself — router on top, “for those who dare” on the glass.</figcaption>
+      </figure>
+      </div>
     </section>
 
     <!-- ============ beyond ============ -->
